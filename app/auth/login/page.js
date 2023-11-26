@@ -4,9 +4,7 @@ import Wrapper from "@/components/custom/Wrapper";
 import AuthLayout from "@/layouts.js/AuthLayout";
 import { Visibility } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
-
 import VisibilityIcon from "@mui/icons-material/Visibility";
-// import { CheckBox } from "@mui/icons-material";
 import {
   Button,
   ButtonBase,
@@ -17,40 +15,51 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import { styled, useTheme } from "@mui/system";
 import React from "react";
-const useStyles = makeStyles({
-  logo: {
-    height: 50,
-    width: 120,
+
+const LoginWrapper = styled("div")(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  height: "70vh",
+  justifyContent: "center",
+  [theme.breakpoints.up("lg")]: {
+    width: 350,
   },
-  row: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  center: {
-    display: "flex",
-    flexDirection: "column",
-    // alignItems: "center",
-    height: "70vh",
-    justifyContent: "center",
-    // width: "100%",
-    // width: 300,
-    ["@media (min-width : 1200px)"]: {
-      width: 350,
-    },
-  },
+}));
+
+const LogoImage = styled("img")({
+  height: 50,
+  width: 120,
 });
+
+const RightContainer = styled("div")(({ theme }) => ({
+  padding: 10,
+  marginTop: 40,
+  [theme.breakpoints.up("lg")]: {
+    paddingLeft: 70,
+  },
+}));
+
+const CheckboxWrapper = styled("div")({
+  display: "flex",
+  alignItems: "center",
+});
+
+const ForgotPasswordLink = styled(ButtonBase)({
+  marginLeft: "-8%",
+});
+
 function Login() {
   const router = useRouter();
-  const classes = useStyles();
+  const theme = useTheme();
+
   return (
     <AuthLayout>
       <form>
-        <div className={classes.right}>
-          <img src="/img/logo.png" className={classes.logo}></img>
-          <div className={classes.center}>
+        <RightContainer>
+          <LogoImage src="/img/logo.png" />
+          <LoginWrapper>
             <Typography variant="h4" gutterBottom>
               Login
             </Typography>
@@ -81,13 +90,13 @@ function Login() {
               fullWidth
             />
             <Wrapper mt={30} mb={50}>
-              <div style={{ display: "flex", alignItems: "center" }}>
+              <CheckboxWrapper>
                 <Checkbox sx={{ marginLeft: "-8%" }} />
                 <Typography variant="body2" color="grey">
                   Remember me
                 </Typography>
-              </div>
-              <ButtonBase
+              </CheckboxWrapper>
+              <ForgotPasswordLink
                 onClick={() => {
                   router.push("/auth/forgotpassword");
                 }}
@@ -95,11 +104,11 @@ function Login() {
                 <Typography color="#2685CA" variant="body2">
                   Forgot Password
                 </Typography>
-              </ButtonBase>
+              </ForgotPasswordLink>
             </Wrapper>
             <Button variant="contained">Sign In</Button>
-          </div>
-        </div>
+          </LoginWrapper>
+        </RightContainer>
       </form>
     </AuthLayout>
   );

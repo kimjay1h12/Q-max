@@ -8,33 +8,34 @@ import {
   Avatar,
   ButtonBase,
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-// import Wrapper from "@/components.js/";
-import React from "react";
+import { styled, useTheme } from "@mui/system";
 import Wrapper from "../custom/Wrapper";
+import React from "react";
 import UpcomingEvent from "../dashboard/UpcomingEvent";
-const useStyles = makeStyles({
-  root: {
-    padding: 50,
-  },
-  box: {
-    padding: 15,
-    background: "#fff",
-  },
-});
+
+const DashboardRoot = styled("div")(({ theme }) => ({
+  padding: theme.spacing(6),
+}));
+
+const DashboardBox = styled("div")(({ theme }) => ({
+  padding: theme.spacing(2),
+  background: "#fff",
+}));
+
 function Dashboard() {
-  const classes = useStyles();
+  const theme = useTheme();
+
   return (
     <MainLayout active={"dashboard"}>
-      <div className={classes.root}>
+      <DashboardRoot>
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
             <div>
               <Typography gutterBottom>Good Morning Kim Jay</Typography>
               <Paper sx={{ background: "#f7f7f7" }}>
-                <Wrapper p={15}>
+                <Wrapper p={2}>
                   <Typography fontWeight={600}>
-                    Internal Comunication
+                    Internal Communication
                   </Typography>
                 </Wrapper>
                 <Divider />
@@ -47,7 +48,7 @@ function Dashboard() {
           </Grid>
           <Grid item xs={12} md={6}></Grid>
         </Grid>
-      </div>
+      </DashboardRoot>
     </MainLayout>
   );
 }
