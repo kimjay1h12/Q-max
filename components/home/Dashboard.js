@@ -1,20 +1,19 @@
 "use client";
 import MainLayout from "@/layouts.js/MainLayout";
-import {
-  Typography,
-  Grid,
-  Paper,
-  Divider,
-  Avatar,
-  ButtonBase,
-} from "@mui/material";
+import { Divider, Grid, Paper, Typography } from "@mui/material";
 import { styled, useTheme } from "@mui/system";
 import Wrapper from "../custom/Wrapper";
-import React from "react";
-import UpcomingEvent from "../dashboard/UpcomingEvent";
+import InternalComunication from "../dashboard/InternalComunication";
+import Performance from "../dashboard/Performance";
+import UpcommingEvents from "../dashboard/UpcommingEvents";
+import Ddocument from "../dashboard/Ddocument";
 
 const DashboardRoot = styled("div")(({ theme }) => ({
-  padding: theme.spacing(6),
+  padding: theme.spacing(1),
+  [theme.breakpoints.up("md")]: {
+    marginTop: theme.spacing(-3),
+    padding: theme.spacing(6),
+  },
 }));
 
 const DashboardBox = styled("div")(({ theme }) => ({
@@ -24,29 +23,77 @@ const DashboardBox = styled("div")(({ theme }) => ({
 
 function Dashboard() {
   const theme = useTheme();
-
   return (
     <MainLayout active={"dashboard"}>
       <DashboardRoot>
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={6}>
+        <Grid container spacing={{ xs: 2, md: 6 }}>
+          <Grid item xs={12} md={7}>
+            <Typography
+              fontWeight={600}
+              variant="h6"
+              style={{ marginBottom: 8 }}
+            >
+              Good Morning Kim Jay
+            </Typography>
             <div>
-              <Typography gutterBottom>Good Morning Kim Jay</Typography>
-              <Paper sx={{ background: "#f7f7f7" }}>
-                <Wrapper p={2}>
+              <Paper style={{ background: "#f7f7f7" }}>
+                <Wrapper p={15} bg={"#fff"}>
                   <Typography fontWeight={600}>
                     Internal Communication
                   </Typography>
                 </Wrapper>
                 <Divider />
                 <div>
-                  <UpcomingEvent />
-                  <UpcomingEvent />
+                  <InternalComunication />
+                  <InternalComunication />
+                </div>
+              </Paper>
+              <Paper style={{ background: "#f7f7f7", marginTop: 30 }}>
+                <Wrapper p={15} bg={"#fff"}>
+                  <Typography fontWeight={600}>
+                    Internal Communication
+                  </Typography>
+                </Wrapper>
+                <Divider />
+                <div>
+                  <UpcommingEvents />
+                  <UpcommingEvents />
+                  <UpcommingEvents />
                 </div>
               </Paper>
             </div>
           </Grid>
-          <Grid item xs={12} md={6}></Grid>
+          <Grid item xs={12} md={5}>
+            <Paper style={{ background: "#ffff", marginTop: 35 }}>
+              <Wrapper p={15} bg={"#fff"}>
+                <Typography fontWeight={600}>Performance Managment</Typography>
+                <Typography>Show: This week</Typography>
+              </Wrapper>
+              <Divider />
+              <div>
+                <Performance />
+              </div>
+            </Paper>
+            <Paper style={{ background: "#ffff", marginTop: 35 }}>
+              <Wrapper p={15} bg={"#fff"}>
+                <Typography fontWeight={600}>Leave Managment</Typography>
+                <Typography>Show: This month</Typography>
+              </Wrapper>
+              <Divider />
+              <div style={{ minHeight: 150 }}>{/* <Performance /> */}</div>
+            </Paper>
+            <Paper style={{ background: "#f7f7f7", marginTop: 35 }}>
+              <Wrapper p={15} bg={"#fff"}>
+                <Typography fontWeight={600}>Departmental Documents</Typography>
+                {/* <Typography>Show: This month</Typography> */}
+              </Wrapper>
+              <Divider style={{ marginTop: 0 }} />
+              <div style={{ minHeight: 150 }}>
+                <Ddocument />
+                <Ddocument />
+              </div>
+            </Paper>
+          </Grid>
         </Grid>
       </DashboardRoot>
     </MainLayout>

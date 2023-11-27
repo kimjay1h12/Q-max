@@ -30,7 +30,7 @@ import * as React from "react";
 import Wrapper from "@/components/custom/Wrapper";
 import Settings from "@mui/icons-material/Settings";
 import Head from "next/head";
-const drawerWidth = 240;
+const drawerWidth = 270;
 const routes = [
   {
     label: "My Profile",
@@ -140,6 +140,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
   padding: theme.spacing(0, 1),
   background: "#fff",
+
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
 }));
@@ -435,7 +436,7 @@ export default function MainLayout({
           flexGrow: 1,
 
           // height: "100%",
-
+          backgroundColor: "#f7f7f7",
           minHeight: "100vh",
           // flex: 1,
         }}

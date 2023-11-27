@@ -9,6 +9,7 @@ function Wrapper({
   alignItems = "center",
   justifyContent = "space-between",
   children,
+  bg,
 }) {
   return (
     <div
@@ -18,6 +19,7 @@ function Wrapper({
         // width: "100%",
         marginTop: mt,
         marginBottom: mb,
+        background: bg,
         gap: gap,
         flexDirection: direction,
         alignItems: alignItems,

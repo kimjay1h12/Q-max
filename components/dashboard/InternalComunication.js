@@ -8,7 +8,7 @@ import {
   Avatar,
   ButtonBase,
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import { makeStyles, styled } from "@mui/styles";
 // import Wrapper from "@/components.js/";
 import React from "react";
 import Wrapper from "../custom/Wrapper";
@@ -19,18 +19,20 @@ const useStyles = makeStyles({
       padding: 50,
     },
   },
-  box: {
-    padding: 15,
-    background: "#fff",
-  },
+  box: {},
 });
-function UpcomingEvent() {
+const Container = styled("div")(({ theme }) => ({
+  padding: 10,
+  background: "#fff",
+  borderRadius: 10,
+}));
+function InternalComunication() {
   const classes = useStyles();
   return (
-    <div style={{ padding: 15 }}>
-      <div className={classes.box}>
+    <div style={{ padding: 10 }}>
+      <Container>
         <Typography fontWeight={600}>Invite to office meet-up</Typography>
-        <div style={{ marginTop: 25 }}>
+        <div style={{ marginTop: 20 }}>
           <Typography>
             Word publishing and graphic design, Lorem ipsum is a placeholder
             text commonly
@@ -41,7 +43,7 @@ function UpcomingEvent() {
           </Wrapper>
           <Wrapper mt={10}>
             <Wrapper justifyContent="" gap={10}>
-              <Avatar />
+              <Avatar style={{ height: 30, width: 30 }} />
               <Typography fontWeight={500}>Rebecca Moore</Typography>
             </Wrapper>
 
@@ -52,9 +54,9 @@ function UpcomingEvent() {
             </ButtonBase>
           </Wrapper>
         </div>
-      </div>
+      </Container>
     </div>
   );
 }
 
-export default UpcomingEvent;
+export default InternalComunication;
