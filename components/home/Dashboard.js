@@ -58,7 +58,7 @@ function Dashboard() {
                 <div>
                   <UpcommingEvents />
                   <UpcommingEvents />
-                  <UpcommingEvents />
+                  {/* <UpcommingEvents /> */}
                 </div>
               </Paper>
             </div>

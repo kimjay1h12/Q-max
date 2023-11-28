@@ -58,7 +58,7 @@ const routes = [
   },
   {
     label: "Settings",
-    path: "/dashboard/products",
+    path: "/settings",
     icon: <Settings />,
     active: "settings",
   },
